@@ -766,11 +766,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chasemarino/Downloads/test/dotnet-code-challenge/CodeChallenge/CodeChallenge.csproj",
+      "projectUniqueName": "/Users/chasemarino/Downloads/dotnet-code-challenge/CodeChallenge/CodeChallenge.csproj",
       "projectName": "CodeChallenge",
-      "projectPath": "/Users/chasemarino/Downloads/test/dotnet-code-challenge/CodeChallenge/CodeChallenge.csproj",
+      "projectPath": "/Users/chasemarino/Downloads/dotnet-code-challenge/CodeChallenge/CodeChallenge.csproj",
       "packagesPath": "/Users/chasemarino/.nuget/packages/",
-      "outputPath": "/Users/chasemarino/Downloads/test/dotnet-code-challenge/CodeChallenge/obj/",
+      "outputPath": "/Users/chasemarino/Downloads/dotnet-code-challenge/CodeChallenge/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/chasemarino/.nuget/NuGet/NuGet.Config"

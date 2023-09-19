@@ -4479,11 +4479,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chasemarino/Downloads/test/dotnet-code-challenge/CodeChallenge.Tests/CodeChallenge.Tests.Integration.csproj",
+      "projectUniqueName": "/Users/chasemarino/Downloads/dotnet-code-challenge/CodeChallenge.Tests/CodeChallenge.Tests.Integration.csproj",
       "projectName": "CodeChallenge.Tests.Integration",
-      "projectPath": "/Users/chasemarino/Downloads/test/dotnet-code-challenge/CodeChallenge.Tests/CodeChallenge.Tests.Integration.csproj",
+      "projectPath": "/Users/chasemarino/Downloads/dotnet-code-challenge/CodeChallenge.Tests/CodeChallenge.Tests.Integration.csproj",
       "packagesPath": "/Users/chasemarino/.nuget/packages/",
-      "outputPath": "/Users/chasemarino/Downloads/test/dotnet-code-challenge/CodeChallenge.Tests/obj/",
+      "outputPath": "/Users/chasemarino/Downloads/dotnet-code-challenge/CodeChallenge.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/chasemarino/.nuget/NuGet/NuGet.Config"
@@ -4498,8 +4498,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/chasemarino/Downloads/test/dotnet-code-challenge/CodeChallenge/CodeChallenge.csproj": {
-              "projectPath": "/Users/chasemarino/Downloads/test/dotnet-code-challenge/CodeChallenge/CodeChallenge.csproj"
+            "/Users/chasemarino/Downloads/dotnet-code-challenge/CodeChallenge/CodeChallenge.csproj": {
+              "projectPath": "/Users/chasemarino/Downloads/dotnet-code-challenge/CodeChallenge/CodeChallenge.csproj"
             }
           }
         }

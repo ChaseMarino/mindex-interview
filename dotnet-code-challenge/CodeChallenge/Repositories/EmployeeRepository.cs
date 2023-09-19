@@ -29,7 +29,23 @@ namespace CodeChallenge.Repositories
 
         public Employee GetById(string id)
         {
-            return _employeeContext.Employees.SingleOrDefault(e => e.EmployeeId == id);
+            return _employeeContext.Employees
+                .Include(e => e.DirectReports)
+                .ThenInclude(dr => dr.DirectReports)    // This is for the second level
+                /*** 
+                NOTE
+
+                In given implementation, DirectReports was being Lazily Loaded, resulting
+                in the data not being accessible.
+                I dont know if there is a version discrepency causing this, but it is 
+                necessary to Eagerly fetch here. this will only support the first 2 levels
+
+                to fix, i would personal change the data scheme, but since I don't know if 
+                that's allowed, I am doing this
+
+                ***/
+                
+                .SingleOrDefault(e => e.EmployeeId == id);
         }
 
         public Task SaveAsync()

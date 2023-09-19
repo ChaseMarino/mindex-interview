@@ -59,5 +59,31 @@ namespace CodeChallenge.Services
 
             return newEmployee;
         }
+
+        
+        public int GetTotalReportsByEmployeeId(string employeeId)
+        {
+            var employee = GetById(employeeId);
+            if (employee == null)
+                return 0;
+
+            // Deduct 1 at the end to exclude the main employee
+            return GetTotalReports(employee) - 1;
+        }
+
+        private int GetTotalReports(Employee employee)
+        {
+            int totalReports = 1; // Counting the current employee
+
+            if (employee.DirectReports != null)
+            {
+                foreach (Employee report in employee.DirectReports)
+                {
+                    totalReports += GetTotalReports(report); //recurse
+                }
+            }
+
+            return totalReports;
+        }
     }
 }

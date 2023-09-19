@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dHsa0eUNyh0Fc6ESynawCUoYQxh1tRurxGR+rHp9PTupxEk878RmalQceeTjaYFaPewQrkXQyqRFQ7BDvI6fCg==",
+  "dgSpecHash": "ThTIvzXpqaSWOCwp1hVNp4sgjEgJhle+M4HT7QnuzYA6y45WTHwgayZC1ldyyCL/GdD9ZJVXhl+BKwlAesNtwg==",
   "success": true,
-  "projectFilePath": "/Users/chasemarino/Downloads/test/dotnet-code-challenge/CodeChallenge.Tests/CodeChallenge.Tests.Integration.csproj",
+  "projectFilePath": "/Users/chasemarino/Downloads/dotnet-code-challenge/CodeChallenge.Tests/CodeChallenge.Tests.Integration.csproj",
   "expectedPackageFiles": [
     "/Users/chasemarino/.nuget/packages/microsoft.aspnetcore.jsonpatch/6.0.5/microsoft.aspnetcore.jsonpatch.6.0.5.nupkg.sha512",
     "/Users/chasemarino/.nuget/packages/microsoft.aspnetcore.mvc.testing/6.0.5/microsoft.aspnetcore.mvc.testing.6.0.5.nupkg.sha512",

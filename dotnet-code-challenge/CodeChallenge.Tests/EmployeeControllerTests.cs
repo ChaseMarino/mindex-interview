@@ -133,4 +133,108 @@ namespace CodeCodeChallenge.Tests.Integration
             Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
         }
     }
+
+        [TestClass]
+    public class ReportingStructureControllerTests
+    {
+        private static HttpClient _httpClient;
+        private static TestServer _testServer;
+
+        [ClassInitialize]
+        // Attribute ClassInitialize requires this signature
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
+        public static void InitializeClass(TestContext context)
+        {
+            _testServer = new TestServer();
+            _httpClient = _testServer.NewClient();
+        }
+
+        [ClassCleanup]
+        public static void CleanUpTest()
+        {
+            _httpClient.Dispose();
+            _testServer.Dispose();
+        }
+
+        [TestMethod]
+        public void GetReportingStructureByEmployeeId_Returns_Ok()
+        {
+            // Arrange
+            var employeeId = "b7839309-3348-463b-a7e3-5de1c168beb3";
+            var expectedReportsCount = 0;
+
+            // Execute
+            var getRequestTask = _httpClient.GetAsync($"api/employee/{employeeId}/reporting-structure");
+            var response = getRequestTask.Result;
+
+            // Assert
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            var reportingStructure = response.DeserializeContent<ReportingStructure>();
+            Assert.AreEqual(expectedReportsCount, reportingStructure.NumberOfReports);
+        }
+    }
+
+    [TestClass]
+    public class CompensationControllerTests
+    {
+        private static HttpClient _httpClient;
+        private static TestServer _testServer;
+
+        [ClassInitialize]
+        // Attribute ClassInitialize requires this signature
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
+        public static void InitializeClass(TestContext context)
+        {
+            _testServer = new TestServer();
+            _httpClient = _testServer.NewClient();
+        }
+
+        [ClassCleanup]
+        public static void CleanUpTest()
+        {
+            _httpClient.Dispose();
+            _testServer.Dispose();
+        }
+
+        [TestMethod]
+        public void CreateCompensation_Returns_Created()
+        {
+            // Arrange
+            var compensation = new Compensation()
+            {
+                EmployeeId = "16a596ae-edd3-4847-99fe-c4518e82c86f",
+                Salary = 50000,
+                EffectiveDate = "09/19/2023"
+            };
+
+            var requestContent = new JsonSerialization().ToJson(compensation);
+
+            // Execute
+            var postRequestTask = _httpClient.PostAsync("api/compensation",
+               new StringContent(requestContent, Encoding.UTF8, "application/json"));
+            var response = postRequestTask.Result;
+
+            // Assert
+            Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
+            var newCompensation = response.DeserializeContent<Compensation>();
+            Assert.AreEqual(compensation.Salary, newCompensation.Salary);
+        }
+
+        [TestMethod]
+        public void GetCompensationByEmployeeId_Returns_Ok()
+        {
+            // Arrange
+            var employeeId = "16a596ae-edd3-4847-99fe-c4518e82c86f";
+            var expectedSalary = 50000;
+
+            // Execute
+            var getRequestTask = _httpClient.GetAsync($"api/compensation/{employeeId}");
+            var response = getRequestTask.Result;
+
+            // Assert
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            var compensation = response.DeserializeContent<Compensation>();
+            Assert.AreEqual(expectedSalary, compensation.Salary);
+        }
+    }
 }
